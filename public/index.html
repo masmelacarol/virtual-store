@@ -14,116 +14,80 @@
         <img class="Header__logo--img" src="../src/assets/images/logo.png" alt="logo de la tienda"></a>
     </figure>
     <section class="Header__title">
-      <h2>Little Virtual Shop</h2>
+      <h1>Little Virtual Shop</h1>
     </section>
     <nav class="Header__navigation">
       <ul>
-        <li><a href="#">Productos</a></li>
+        <li><a href="#products">Products</a></li>
         <li><a href="#"><figure class="shop-icon">
           <img src="../src/assets/images/shop-icon.png" alt="shop icon"></figure></a>
         </li>
       </ul>
     </nav>
   </header>
-  <main class="Main">
+  <main class="Main" id="#products">
+    <section class="Main__title">
+      <h2>Products</h2>
+    </section>
     <section class="Main__products">
-      <div class="Main__products--item">
-        <button class="btn-item">
-          <figure>
-            <img src alt="item">
-          </figure>
-          <p>item</p>
-        </button>
-      </div>
-      <div class="Main__products--item">
-        <button class="btn-item">
-          <figure>
-            <img src alt="item">
-          </figure>
-          <p>item</p>
-        </button>
-      </div>
-      <div class="Main__products--item">
-        <button class="btn-item">
-          <figure>
-            <img src alt="item">
-          </figure>
-          <p>item</p>
-        </button>
-      </div>
-      <div class="Main__products--item">
-        <button class="btn-item">
-          <figure>
-            <img src alt="item">
-          </figure>
-          <p>item</p>
-        </button>
-      </div>
-      <div class="Main__products--item">
-        <button class="btn-item">
-          <figure>
-            <img src alt="item">
-          </figure>
-          <p>item</p>
-        </button>
-      </div>
-      <div class="Main__products--item">
-        <button class="btn-item">
-          <figure>
-            <img src alt="item">
-          </figure>
-          <p>item</p>
-        </button>
-      </div>
-      <div class="Main__products--item">
-        <button class="btn-item">
-          <figure>
-            <img src alt="item">
-          </figure>
-          <p>item</p>
-        </button>
-      </div>
-      <div class="Main__products--item">
-        <button class="btn-item">
-          <figure>
-            <img src alt="item">
-          </figure>
-          <p>item</p>
-        </button>
-      </div>
-      <div class="Main__products--item">
-        <button class="btn-item">
-          <figure>
-            <img src alt="item">
-          </figure>
-          <p>item</p>
-        </button>
-      </div>
-      <div class="Main__products--item">
-        <button class="btn-item">
-          <figure>
-            <img src alt="item">
-          </figure>
-          <p>item</p>
-        </button>
-      </div>
-      <div class="Main__products--item">
-        <button class="btn-item">
-          <figure>
-            <img src alt="item">
-          </figure>
-          <p>item</p>
-        </button>
-      </div>
-      <div class="Main__products--item">
-        <button class="btn-item">
-          <figure>
-            <img src alt="item">
-          </figure>
-          <p>item</p>
-        </button>
-      </div>
+      <a class="Main__products--item" href="#miModal">
+        <img src="../src/assets/images/space.png" alt="item">
+        <div class="Main__products--info">
+          <p>Item #</p>
+        </div>
+      </a>
+      <a class="Main__products--item" href="#miModal">
+        <img src="../src/assets/images/space.png" alt="item">
+        <div class="Main__products--info">
+          <p>Item #</p>
+        </div>
+      </a>
+      <a class="Main__products--item" href="#miModal">
+        <img src="../src/assets/images/space.png" alt="item">
+        <div class="Main__products--info">
+          <p>Item #</p>
+        </div>
+      </a>
+      <a class="Main__products--item" href="#miModal">
+        <img src="../src/assets/images/space.png" alt="item">
+        <div class="Main__products--info">
+          <p>Item #</p>
+        </div>
+      </a>
+      <a class="Main__products--item" href="#miModal">
+        <img src="../src/assets/images/space.png" alt="item">
+        <div class="Main__products--info">
+          <p>Item #</p>
+        </div>
+      </a>
+      <a class="Main__products--item" href="#miModal">
+        <img src="../src/assets/images/space.png" alt="item">
+        <div class="Main__products--info">
+          <p>Item #</p>
+        </div>
+      </a>
+    </section>
+
+    <section class="Main__modal" id="miModal">
+      <div class="Main__modal--container">
+        <a href="#">x</a>
+        <h2>Mi primer Modal</h2>
+        <p>Este es mi primera ventana modal sin utilizar JavaScript.</p>
+      </div>  
     </section>
   </main>
+
+  <footer class="Footer">
+    <div class="Footer__autor">
+      <p>Carol Estefanny Masmela</p>
+    </div>
+    <nav class="Footer__navigation">
+      <ul>
+        <li><a href=""><img src="../src/assets/images/github.svg" alt="github"></a></li>
+        <li><a href=""><img src="../src/assets/images/linkedin.svg" alt="linkedin"></a></li>
+      </ul>
+    </nav>
+  </footer>
+  
 </body>
 </html>
