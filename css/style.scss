@@ -45,12 +45,15 @@ h2 {
 
 a{
   text-decoration: none;
+  transition: all 0.5s;
 }
 
 
 a:hover{
   text-decoration: underline;
   color: var(--color-titles);
+  transform: scale(1.1);
+  transition: all 0.5s;
 }
 
 ul {
@@ -95,6 +98,18 @@ img {
         width: 30px;
         height: 30px;
       }
+      .btn-home {
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: 1px solid var(--bg-card);
+        background-color: var(--bg-card);
+        color: #000;
+      }
+      .btn-home:hover {
+        color: #fff;
+        text-decoration: none;
+        background-color: #7e1a02;
+      }
     }
   }
 }
@@ -106,36 +121,29 @@ img {
     border-bottom: 1px solid var(--color-titles);
   }
   &__products{
-    padding-top: 40px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     justify-items: center;
     align-content: center;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     &--item{
       border-radius: 10px;
-      width: 300px;
+      width: 150px;
       &:hover {
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
         border-radius: 10px;
         text-decoration: none;
       }
-      img {
-        border-radius: 10px 10px 0 0;
-        height: 90%;
-        
-      }
       p {
         background-color: var(--bg-card);
         padding: 5px 10px;
-        border-radius: 0 0 10px 10px;
-        font-weight: bold;
+        border-radius: 0 0 5px 5px;
         margin-top: -5px;
-        min-height: 50px;
         display: flex;
         align-items: center;
+        font-size: 12px;
       }
     }
   
@@ -150,7 +158,7 @@ img {
     opacity:0;
     pointer-events:none;
     &--container {
-      width:50vw;
+      width:40vw;
       padding: 10px 20px;
       margin: 20% auto;
       border-radius: 10px;
@@ -170,14 +178,22 @@ img {
         align-items: center;
       }
       .description {
-        display: flex;
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         align-items: center;
+        align-content: center;
+        padding: 20px;
+        gap: 10px;
         img{
-          margin-right: 10px;
-          width: 170px;
+          margin: 0 auto;
+          width: 150px;
+          height: 150px;
+          box-shadow: 4px 1px 8px 0px #595959;
+          border-radius: 10px;
         }
         p {
           font-weight: bold;
+          margin-bottom: 10px;
           span {
             font-weight: normal;
           }
@@ -185,7 +201,7 @@ img {
         .btn-add {
           display: inline-block;
           width: 100%;
-          margin: 10px;
+          margin: 10px 0;
           padding: .375rem .75rem;
           font-size: 1rem;
           line-height: 1.5;
@@ -200,6 +216,13 @@ img {
           cursor: pointer;   
           outline: none; 
           transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+          &:hover {
+            color: #fff;
+            text-decoration: none;
+            background-color: #7e1a02;
+            border-radius: 1px solid var(--color-titles);
+            border-radius: .25rem;
+          }
         }
       }
     }
@@ -210,6 +233,42 @@ img {
   }
 }
 
+.Cart {
+  padding: 20px;
+  &__title {
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--color-titles);
+  }
+  &__product {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-rows: 1fr;
+    height: 100%;
+    &--info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      align-self: center;
+      img {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+      }
+    }
+    &--description {
+      
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-template-rows: 1fr;
+      align-self: center;
+      p {
+        font-size: 14px;
+      }
+      small {
+        font-size: 12px;
+      }
+    }
+  }
+}
 
 .Footer {
   align-self: flex-end;
