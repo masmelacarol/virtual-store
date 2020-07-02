@@ -18,7 +18,7 @@
     </section>
     <nav class="Header__navigation">
       <ul>
-        <li><a href="#products">Products</a></li>
+        <li><p>$ <span id="products-price">0</span></p></li>
         <li><a href="#"><figure class="shop-icon">
           <img src="../src/assets/images/shop-icon.png" alt="shop icon"></figure></a>
         </li>
@@ -29,50 +29,12 @@
     <section class="Main__title">
       <h2>Products</h2>
     </section>
-    <section class="Main__products">
-      <a class="Main__products--item" href="#miModal">
-        <img src="../src/assets/images/space.png" alt="item">
-        <div class="Main__products--info">
-          <p>Item #</p>
-        </div>
-      </a>
-      <a class="Main__products--item" href="#miModal">
-        <img src="../src/assets/images/space.png" alt="item">
-        <div class="Main__products--info">
-          <p>Item #</p>
-        </div>
-      </a>
-      <a class="Main__products--item" href="#miModal">
-        <img src="../src/assets/images/space.png" alt="item">
-        <div class="Main__products--info">
-          <p>Item #</p>
-        </div>
-      </a>
-      <a class="Main__products--item" href="#miModal">
-        <img src="../src/assets/images/space.png" alt="item">
-        <div class="Main__products--info">
-          <p>Item #</p>
-        </div>
-      </a>
-      <a class="Main__products--item" href="#miModal">
-        <img src="../src/assets/images/space.png" alt="item">
-        <div class="Main__products--info">
-          <p>Item #</p>
-        </div>
-      </a>
-      <a class="Main__products--item" href="#miModal">
-        <img src="../src/assets/images/space.png" alt="item">
-        <div class="Main__products--info">
-          <p>Item #</p>
-        </div>
-      </a>
-    </section>
+    <section class="Main__products"></section>
 
     <section class="Main__modal" id="miModal">
       <div class="Main__modal--container">
         <a href="#">x</a>
-        <h2>Mi primer Modal</h2>
-        <p>Este es mi primera ventana modal sin utilizar JavaScript.</p>
+        <div class="description"></div>
       </div>  
     </section>
   </main>
@@ -89,5 +51,7 @@
     </nav>
   </footer>
   
+  <script src="./js/fetchData.js"></script>
+  <script src="./js/index.js"></script>
 </body>
 </html>
