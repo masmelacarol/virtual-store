@@ -18,8 +18,8 @@
     </section>
     <nav class="Header__navigation">
       <ul>
-        <li><p>$ <span id="products-price">0</span></p></li>
-        <li><a class="btn-home" href="./index.html">Volver al Home</a>
+        <li class="home">
+          <a class="btn btn-home" href="./index.html">Volver al Home</a>
         </li>
       </ul>
     </nav>
@@ -29,25 +29,14 @@
       <h2>My Cart</h2>
     </section>
     <section class="Cart__product">
-      <div class="Cart__product--info">
-        <img src="./assets/images/space.png" alt>
-        <div class="Cart__product--description">
-          <div>
-            <p>Name</p>
-            <small>description</small>
-          </div>
-          <div>
-            <p class="quantity">cantidad</p>
-            <p>Price</p>
-          </div>
-      </div>
-      </div>
+      <div class="Cart__product--info"></div>      
       <div class="Cart__totals">
         <h3>Cart Total</h3>
-        <div class="Cart_totals--price">
+        <div class="Cart__totals--price">
           <h6>Total</h6>
           <p id="amount"></p>
         </div>
+        <button class="btn">Eliminar carrito</button>
       </div>
     </section>
   </main>
@@ -62,5 +51,6 @@
       </ul>
     </nav>
   </footer>
+  <script src="js/cart-products.js"></script>
 </body>
 </html>
