@@ -37,8 +37,10 @@ const getDataModal = (e) => {
                         <p class="name">Price: 
                           <span>${price}</span>
                         </p>
-                        <button class="btn-add">Agregar al carrito</button>
-                      </div>`
+                        <button id="btn-${info.id}" class="btn-add">Agregar al carrito</button>
+                      </div>`;
+  const btnShop = document.querySelectorAll('.btn-add');
+  btnShop.forEach(item => item.addEventListener('click', addProduct));
 
 }
 getData();

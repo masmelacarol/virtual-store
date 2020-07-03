@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="image/x-png" href="assets/images/shop-icon.png" rel="shortcut icon">
+  <link href="style.css" rel="stylesheet">
+  <title>Cart</title>
+</head>
+<body>
+  <header class="Header">
+    <figure class="Header__logo">
+      <a href="/virtual-store">
+        <img class="Header__logo--img" src="assets/images/logo.png" alt="logo de la tienda"></a>
+    </figure>
+    <section class="Header__title">
+      <h1>Little Virtual Shop</h1>
+    </section>
+    <nav class="Header__navigation">
+      <ul>
+        <li><p>$ <span id="products-price">0</span></p></li>
+        <li><a class="btn-home" href="./index.html">Volver al Home</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class="Cart">
+    <section class="Cart__title">
+      <h2>My Cart</h2>
+    </section>
+    <section class="Cart__product">
+      <div class="Cart__product--info">
+        <img src="./assets/images/space.png" alt>
+        <div class="Cart__product--description">
+          <div>
+            <p>Name</p>
+            <small>description</small>
+          </div>
+          <div>
+            <p class="quantity">cantidad</p>
+            <p>Price</p>
+          </div>
+      </div>
+      </div>
+      <div class="Cart__totals">
+        <h3>Cart Total</h3>
+        <div class="Cart_totals--price">
+          <h6>Total</h6>
+          <p id="amount"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="Footer">
+    <div class="Footer__autor">
+      <p>Carol Estefanny Masmela</p>
+    </div>
+    <nav class="Footer__navigation">
+      <ul>
+        <li><a href="https://github.com/masmelacarol" target="_blank"><img src="assets/images/github.svg" alt="github"></a></li>
+        <li><a href="https://www.linkedin.com/in/carol-masmela/" target="_blank"><img src="assets/images/linkedin.svg" alt="linkedin"></a></li>
+      </ul>
+    </nav>
+  </footer>
+</body>
+</html>
