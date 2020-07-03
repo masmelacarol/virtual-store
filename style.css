@@ -23,7 +23,7 @@ body {
   grid-template-rows: 15% 1fr 15%;
   height: 100vh;
 }
-@media (max-width: 700px) {
+@media (max-width: 940px) {
   body {
     grid-template-rows: repeat(3, 1fr);
   }
@@ -85,9 +85,14 @@ img {
   padding: 20px;
   border-bottom: 1px solid var(--bg-main);
 }
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .Header {
     gap: 10px;
+  }
+}
+@media (max-width: 620px) {
+  .Header {
+    grid-template-columns: 1fr;
   }
 }
 .Header__logo {
@@ -95,7 +100,7 @@ img {
   width: 80px;
   height: 50px;
 }
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .Header__logo {
     justify-self: center;
   }
@@ -103,9 +108,15 @@ img {
 .Header__navigation {
   justify-self: right;
 }
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .Header__navigation {
     justify-self: center;
+    grid-column: span 2;
+  }
+}
+@media (max-width: 620px) {
+  .Header__navigation {
+    grid-column: span 1;
   }
 }
 .Header__navigation ul {
@@ -187,9 +198,19 @@ img {
 .Main__modal--container {
   width: 40vw;
   padding: 10px 20px;
-  margin: 20% auto;
+  margin: 10% auto;
   border-radius: 10px;
   position: relative;
+}
+@media (max-width: 940px) {
+  .Main__modal--container {
+    width: 60vw;
+  }
+}
+@media (max-width: 600px) {
+  .Main__modal--container {
+    width: 90vw;
+  }
 }
 .Main__modal--container a {
   position: absolute;
@@ -212,6 +233,11 @@ img {
   align-content: center;
   padding: 20px;
   gap: 10px;
+}
+@media (max-width: 600px) {
+  .Main__modal--container .description {
+    grid-template-columns: 1fr;
+  }
 }
 .Main__modal--container .description img {
   margin: 0 auto;
@@ -273,6 +299,12 @@ img {
   height: 100%;
   gap: 20px;
 }
+@media (max-width: 768px) {
+  .Cart__product {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
 .Cart__product--info {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -280,7 +312,7 @@ img {
 }
 .Cart__product--info .product {
   display: grid;
-  grid-template-columns: 15% 85%;
+  grid-template-columns: 1fr 3fr;
   align-self: center;
   padding: 5px;
   border: 3px solid var(--bg-card);
