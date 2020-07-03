@@ -1,4 +1,4 @@
-const showProducts = (data) => {
+const showDataProducts = (data) => {
   const item = document.querySelector('.Main__products');
   data.forEach(element => {
     item.innerHTML += `<a class="Main__products--item" id=${element.id} href="#miModal">
@@ -9,10 +9,10 @@ const showProducts = (data) => {
                       </a>`
   });
   const itemProduct = document.querySelectorAll('.Main__products--item');
-  itemProduct.forEach(item => item.addEventListener('click', getDataModal));
+  itemProduct.forEach(item => item.addEventListener('click', getDataProductModal));
 }
 
-const showProductModal = (dataProduct) => {
+const showDataProductModal = (dataProduct) => {
   const modal = document.querySelector('.Main__modal--container .description');
   const price = formatter(dataProduct.price);
   modal.innerHTML =
@@ -21,7 +21,7 @@ const showProductModal = (dataProduct) => {
       <p>Name: <span>${dataProduct.name}</span></p>
       <p>Description: <span>${dataProduct.description}</span></p>
       <p>Price: <span>${price}</span></p>
-      <button id="btn-${dataProduct.id}" class="btn btn-add">Agregar al carrito</button>
+      <button id="btn-${dataProduct.id}" class="btn btn-add">Add to Cart</button>
     </div>`;
 }
 

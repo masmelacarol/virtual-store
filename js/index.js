@@ -1,28 +1,29 @@
 let data;
+const API = 'js/API.json';
 
-const fetchData = async () => {
-  const response = await fetch('js/API.json');
+const fetchData = async (api_url) => {
+  const response = await fetch(api_url);
   const data = await response.json();
   return localStorage.setItem('data', JSON.stringify(data));
 }
 
-const getData = async () => {
+const getDataProducts = async () => {
   let store = localStorage.getItem('data');
   if (!store) {
-    await fetchData();
+    await fetchData(API);
     store = localStorage.getItem('data');
   }
   data = JSON.parse(store);
-  showProducts(data);
+  showDataProducts(data);
 }
 
 
-const getDataModal = (e) => {
+const getDataProductModal = (e) => {
   const id = e.target.parentNode.id;
   const dataProduct = data[id - 1];
-  showProductModal(dataProduct);
+  showDataProductModal(dataProduct);
   const btnShop = document.querySelectorAll('.btn-add');
-  btnShop.forEach(item => item.addEventListener('click', addProduct));
+  btnShop.forEach(item => item.addEventListener('click', addCartOnProduct));
 }
 
 const formatter = (dataFormat) => {
@@ -33,16 +34,17 @@ const formatter = (dataFormat) => {
   return format.format(Number(dataFormat));
 }
 
-const findOrCreateCart = () => {
+const findOrCreateCartProduct = () => {
   if (!localStorage.getItem('cart')) {
     localStorage.setItem('cart', JSON.stringify([]));
   }
   return JSON.parse(localStorage.getItem('cart'));
 }
 
-let productArr = findOrCreateCart();
 
-const addProduct = (e) => {
+let productArr = findOrCreateCartProduct();
+
+const addCartOnProduct = (e) => {
   const btnId = e.target.id;
   const id = btnId.slice(4, 6);
   let itExist = productArr.find(item => item.id == id);
@@ -53,17 +55,21 @@ const addProduct = (e) => {
     itExist.count += 1;
   }
   localStorage.setItem('cart', JSON.stringify(productArr));
-  getTotalCount();
+  getTotalCountOnCart();
 }
 
-const getTotalCount = () => {
+const getTotalCountOnCart = () => {
   const countElement = document.querySelector('#products-count');
   let count = productArr
     .map(item => item.count)
     .reduce((count, value) => count + value, 0);
   localStorage.setItem('totalCount', JSON.stringify(count));
   countElement.innerHTML = JSON.parse(localStorage.getItem('totalCount'));
-
 }
-getTotalCount();
-getData();
+
+
+
+
+
+getTotalCountOnCart();
+getDataProducts();

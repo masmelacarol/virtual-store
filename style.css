@@ -61,11 +61,9 @@ a {
   transition: all 0.5s;
 }
 
-a:hover {
+a:hover :not(.btn-home) {
   text-decoration: underline;
   color: var(--color-titles);
-  transform: scale(1.1);
-  transition: all 0.5s;
 }
 
 ul {
@@ -132,20 +130,13 @@ img {
   width: 30px;
   height: 30px;
 }
-.Header__navigation ul .btn-home {
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: 1px solid var(--bg-card);
-  background-color: var(--bg-card);
-  color: #000;
-}
-.Header__navigation ul .btn-home:hover {
-  color: #fff;
-  text-decoration: none;
-  background-color: #7e1a02;
-}
 .Header__navigation ul .products-count {
   display: inline-block;
+  font-weight: bold;
+  color: var(--color-titles);
+}
+.Header__navigation ul .products-count span {
+  font-weight: normal;
 }
 
 .Main {
@@ -164,9 +155,6 @@ img {
   align-items: center;
   gap: 10px;
 }
-.Main__products--info p {
-  pointer-events: none;
-}
 .Main__products--item {
   border-radius: 10px;
   width: 150px;
@@ -174,9 +162,12 @@ img {
 .Main__products--item:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+}
+.Main__products--item:hover p {
   text-decoration: none;
 }
-.Main__products--item p {
+.Main__products--info .name {
+  pointer-events: none;
   background-color: var(--bg-card);
   padding: 5px 10px;
   border-radius: 0 0 5px 5px;
