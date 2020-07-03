@@ -1,7 +1,6 @@
 let cartProducts = JSON.parse(localStorage.getItem('cart'));
 
 const showCartProducts = () => {
-  console.log("cartProducts", cartProducts)
   const containerProducts = document.querySelector('.Cart__product--info');
   if (cartProducts.length !== 0) {
     cartProducts.forEach(element => {
@@ -28,18 +27,21 @@ const showCartProducts = () => {
     btnDelete.forEach(item => item.addEventListener('click', deleteProductCart))
 
   } else {
-    containerProducts.innerHTML =
-      `<div style="margin:auto">
-        <p>No hay productos en el carrito</p>
-        <a class="btn btn-home" href="./index.html">Volver al Home</a>
-      </div>
-      `
+    if (containerProducts) {
+      containerProducts.innerHTML =
+        `<div style="margin:auto">
+          <p>No hay productos en el carrito</p>
+          <a class="btn btn-home" href="./index.html">Volver al Home</a>
+        </div>
+        `
+
+    }
   }
 }
 
 const showCartAmountTotal = (total) => {
   const totalAmount = document.querySelector('.Cart__totals--price #amount');
-  if (cartProducts) {
+  if (cartProducts && totalAmount) {
     totalAmount.innerHTML = total;
   }
 }
@@ -61,35 +63,46 @@ const deleteElementCart = (arr, id) => {
   }
 }
 
-
 const deleteProductCart = (e) => {
   const id = (e.target.id).slice(5, 7);
   const cartContainer = document.querySelector('.Cart__product--info');
   const productToEliminate = e.target.parentNode.parentNode.parentNode;
   const productCart = cartProducts.find(item => item.id == id);
-  console.log("deleteProductCart -> cartContainer.children", cartContainer.children.length)
 
   if (cartContainer.children.length) {
     if (productCart) {
       let item = productCart.count;
       if (item > 1) {
         productCart.count -= 1;
+        // updateCountCartProducts(productCart);
       } else {
         productToEliminate.remove();
         deleteElementCart(cartProducts, productCart)
         showCartAmountTotal(formatter(getCartTotal()));
+        localStorage.removeItem('cart');
       }
     } else {
       productToEliminate.remove();
       deleteElementCart(cartProducts, productCart)
       showCartAmountTotal(formatter(getCartTotal()));
-      localStorage.removeItem('cart');
     }
 
   }
   if (cartProducts.length === 0) {
     showCartProducts();
   }
+}
+
+const deleteAllProductsCart = (e) => {
+  e.preventDefault();
+  const cartContainer = document.querySelector('.Cart__product--info');
+  while (cartContainer.firstChild) {
+    cartContainer.removeChild(cartContainer.firstChild);
+  }
+  cartProducts = [];
+  localStorage.removeItem('cart');
+  showCartAmountTotal(formatter(getCartTotal()));
+
 }
 
 
@@ -101,6 +114,6 @@ const formatter = (dataFormat) => {
   return format.format(Number(dataFormat));
 }
 
+document.querySelector('.btn-delete').addEventListener('click', deleteAllProductsCart);
 showCartAmountTotal(formatter(getCartTotal()));
-
 showCartProducts();
