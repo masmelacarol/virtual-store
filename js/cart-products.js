@@ -18,7 +18,10 @@ const showCartProducts = () => {
               <p class="quantify"><span>${element.count}</span></p>
               <p>${price}</p>
             </div>
-            <button id=item-${element.id} class="btn btn-delete">-</button>
+            <div class="btns">
+              <button id=item-${element.id} class="btn btn-delete">-</button>            
+              <button id=item-${element.id} class="btn btn-add">+</button>            
+            </div>
           </div>
       </div>`;
 
@@ -26,17 +29,21 @@ const showCartProducts = () => {
     const btnDelete = document.querySelectorAll('.btn-delete');
     btnDelete.forEach(item => item.addEventListener('click', deleteProductCart))
 
+    const btnAdd = document.querySelectorAll('.btn-add');
+    btnAdd.forEach(item => item.addEventListener('click', addProductCart))
+
   } else {
-    if (containerProducts) {
-      containerProducts.innerHTML =
-        `<div style="margin:auto">
+    showNoElements(containerProducts);
+  }
+}
+
+const showNoElements = (element) => {
+  element.innerHTML =
+    `<div style="margin:auto">
           <p>No hay productos en el carrito</p>
           <a class="btn btn-home" href="./index.html">Volver al Home</a>
         </div>
         `
-
-    }
-  }
 }
 
 const showCartAmountTotal = (total) => {
@@ -44,6 +51,14 @@ const showCartAmountTotal = (total) => {
   if (cartProducts && totalAmount) {
     totalAmount.innerHTML = total;
   }
+}
+
+const showCountProductCart = (id) => {
+  const elementCount = document.querySelector('.quantify');
+  const productCart = cartProducts.find(item => item.id == id);
+  console.log("showCountProductCart -> productCart", productCart.count)
+  elementCount.innerHTML = productCart.count;
+
 }
 
 const getCartTotal = () => {
@@ -57,40 +72,53 @@ const getCartTotal = () => {
   }
 }
 
-const deleteElementCart = (arr, id) => {
-  if (arr) {
-    arr.splice(id, 1);
+const deleteElementCart = (id) => {
+  if (cartProducts) {
+    let product = cartProducts.findIndex(item => item.id == id);
+    cartProducts.splice(product, 1);
+    localStorage.setItem('cart', JSON.stringify(cartProducts));
   }
+}
+
+const addProductCart = (e) => {
+  const id = (e.target.id).slice(5, 7);
+  const productCart = cartProducts.find(item => item.id == id);
+
+  if (productCart) {
+    productCart.count += 1;
+    localStorage.setItem('cart', JSON.stringify(cartProducts));
+    showCartAmountTotal(formatter(getCartTotal()));
+    showCountProductCart(id);
+  }
+
 }
 
 const deleteProductCart = (e) => {
   const id = (e.target.id).slice(5, 7);
   const cartContainer = document.querySelector('.Cart__product--info');
-  const productToEliminate = e.target.parentNode.parentNode.parentNode;
+  const productToEliminate = e.target.parentNode.parentNode.parentNode.parentNode;
   const productCart = cartProducts.find(item => item.id == id);
 
-  if (cartContainer.children.length) {
-    if (productCart) {
-      let item = productCart.count;
-      if (item > 1) {
-        productCart.count -= 1;
-        // updateCountCartProducts(productCart);
-      } else {
-        productToEliminate.remove();
-        deleteElementCart(cartProducts, productCart)
-        showCartAmountTotal(formatter(getCartTotal()));
-        localStorage.removeItem('cart');
-      }
+
+  if (productCart) {
+    let item = productCart.count;
+    if (item > 1) {
+      productCart.count -= 1;
+      localStorage.setItem('cart', JSON.stringify(cartProducts));
+      showCartAmountTotal(formatter(getCartTotal()));
+      showCountProductCart(id);
     } else {
       productToEliminate.remove();
-      deleteElementCart(cartProducts, productCart)
+      deleteElementCart(id);
       showCartAmountTotal(formatter(getCartTotal()));
+      console.log("deleteProductCart -> productCart.length", productCart.length)
+      if (cartProducts.length === 0) {
+        showNoElements(cartContainer);
+      }
     }
+  }
 
-  }
-  if (cartProducts.length === 0) {
-    showCartProducts();
-  }
+
 }
 
 const deleteAllProductsCart = (e) => {
@@ -102,7 +130,7 @@ const deleteAllProductsCart = (e) => {
   cartProducts = [];
   localStorage.removeItem('cart');
   showCartAmountTotal(formatter(getCartTotal()));
-
+  showNoElements(cartContainer);
 }
 
 

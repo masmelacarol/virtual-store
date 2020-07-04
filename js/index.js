@@ -45,18 +45,19 @@ const findOrCreateCartProduct = () => {
 let productArr = findOrCreateCartProduct();
 
 const addCartOnProduct = (e) => {
-  const btnId = e.target.id;
-  const id = btnId.slice(4, 6);
+  const id = e.target.id.slice(4, 6);
   let itExist = productArr.find(item => item.id == id);
-
   if (!itExist) {
     productArr.push({ ...data[id - 1], count: 1 });
   } else {
     itExist.count += 1;
   }
+
   localStorage.setItem('cart', JSON.stringify(productArr));
   getTotalCountOnCart();
 }
+
+
 
 const getTotalCountOnCart = () => {
   const countElement = document.querySelector('#products-count');

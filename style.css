@@ -341,9 +341,13 @@ img {
   margin-bottom: 10px;
   text-align: center;
 }
-.Cart__product--description .product-price .btn-delete {
+.Cart__product--description .product-price .btn-delete,
+.Cart__product--description .product-price .btn-add {
   width: 30px;
   margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .Cart__product--description .product :last-of-type {
   margin: 0;

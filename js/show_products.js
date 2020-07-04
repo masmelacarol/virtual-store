@@ -25,3 +25,13 @@ const showDataProductModal = (dataProduct) => {
     </div>`;
 }
 
+
+const showCountProduct = (count) => {
+  const modal = document.querySelector('.Main__modal--container .Main__products--info');
+  if (count) {
+    modal.innerHTML +=
+      `<p>Count: <span>${count}</span></p>`
+  }
+
+}
+

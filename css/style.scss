@@ -321,9 +321,13 @@ img {
             margin-bottom: 10px;
             text-align: center;
           }
-          .btn-delete {
+          .btn-delete,
+          .btn-add {
             width: 30px;
             margin-left: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
         }
 
