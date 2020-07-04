@@ -35,3 +35,10 @@ const showCountProduct = (count) => {
 
 }
 
+const showCartAmountTotal = (total) => {
+  const generalTotal = document.querySelector('.Header__navigation #total-count')
+  if (generalTotal) {
+    generalTotal.innerHTML = total;
+  }
+}
+

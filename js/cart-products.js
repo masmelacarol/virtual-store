@@ -40,8 +40,8 @@ const showCartProducts = () => {
 const showNoElements = (element) => {
   element.innerHTML =
     `<div style="margin:auto">
-          <p>No hay productos en el carrito</p>
-          <a class="btn btn-home" href="./index.html">Volver al Home</a>
+          <p>Your Cart is empty</p>
+          <a class="btn btn-home" href="./index.html">Back to Home</a>
         </div>
         `
 }

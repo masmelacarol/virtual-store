@@ -119,9 +119,10 @@ img {
 }
 .Header__navigation ul {
   display: grid;
-  grid-template-columns: repeat(2, minmax(50px, 1fr));
+  grid-template-columns: repeat(3, minmax(100px, 1fr));
   align-items: center;
   justify-items: center;
+  gap: 5px;
 }
 .Header__navigation ul .home {
   grid-column: span 2;
@@ -130,12 +131,14 @@ img {
   width: 30px;
   height: 30px;
 }
-.Header__navigation ul .products-count {
+.Header__navigation ul .products-count,
+.Header__navigation ul .total-count {
   display: inline-block;
   font-weight: bold;
   color: var(--color-titles);
 }
-.Header__navigation ul .products-count span {
+.Header__navigation ul .products-count span,
+.Header__navigation ul .total-count span {
   font-weight: normal;
 }
 

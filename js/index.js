@@ -55,6 +55,7 @@ const addCartOnProduct = (e) => {
 
   localStorage.setItem('cart', JSON.stringify(productArr));
   getTotalCountOnCart();
+  showCartAmountTotal(formatter(getCartAmountTotal()));
 }
 
 
@@ -68,7 +69,16 @@ const getTotalCountOnCart = () => {
   countElement.innerHTML = JSON.parse(localStorage.getItem('totalCount'));
 }
 
-
+const getCartAmountTotal = () => {
+  if (productArr) {
+    const totalAmount = productArr
+      .map(item => item.price * item.count)
+      .reduce((value, count) => count + value, 0)
+    return totalAmount;
+  } else {
+    return 0;
+  }
+}
 
 
 
